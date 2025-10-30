@@ -14,5 +14,8 @@ public class Money {
         if(amount < 0) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_MINUS.getMessage());
         }
+        if (amount == 0) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_ZERO.getMessage());
+        }
     }
 }
