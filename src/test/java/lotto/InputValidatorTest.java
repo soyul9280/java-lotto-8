@@ -20,7 +20,7 @@ public class InputValidatorTest {
         public void InvalidMoney_Null_Fail() {
             assertThatThrownBy(() -> InputValidator.validateMoney(null))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(ErrorMessage.INVALID_INPUT_NULL.getMessage()+null);
+                    .hasMessage(ErrorMessage.INVALID_INPUT_NULL.getMessage());
         }
 
         @Test
@@ -49,7 +49,7 @@ public class InputValidatorTest {
         public void Invalid_WinningNumber_Null_Fail() {
             assertThatThrownBy(() -> InputValidator.validateWinningNumber(null))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(ErrorMessage.INVALID_WINNING_NUMBER_NULL.getMessage());
+                    .hasMessage(ErrorMessage.INVALID_INPUT_NULL.getMessage());
         }
 
         @Test
@@ -83,7 +83,7 @@ public class InputValidatorTest {
         public void Invalid_WinningNumber_Not_Comma_Fail(String number) {
             assertThatThrownBy(() -> InputValidator.validateWinningNumber(number))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(ErrorMessage.INVALID_COMMA_SPECIAL_CHARACTER.getMessage());
+                    .hasMessage(ErrorMessage.INVALID_ONLY_DELIMITER_AND_NUMBER.getMessage());
         }
     }
 }
