@@ -6,7 +6,8 @@ public enum ErrorMessage {
     INVALID_MONEY_OVER_INT("구매 금액이 너무 큽니다. 2,147,483,647 범위 내에서 입력해주세요."),
     INVALID_MONEY_NOT_NUMBER("구매 금액에는 숫자만 들어올 수 있습니다."),
     INVALID_MONEY_MINUS("구매 금액에 음수가 들어올 수 없습니다."),
-    INVALID_MONEY_ZERO("구매 금액에 0이 올 수 없습니다.");
+    INVALID_MONEY_ZERO("구매 금액에 0이 올 수 없습니다."),
+    INVALID_MONEY_NOT_THOUSAND_UNIT("구매 금액은 1,000단위로 입력해주세요.");
 
 
     private final String message;

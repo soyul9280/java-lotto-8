@@ -17,5 +17,8 @@ public class Money {
         if (amount == 0) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_ZERO.getMessage());
         }
+        if (amount % 1000 != 0) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_NOT_THOUSAND_UNIT.getMessage());
+        }
     }
 }
