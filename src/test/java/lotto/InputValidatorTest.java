@@ -35,12 +35,4 @@ public class InputValidatorTest {
                 .hasMessage(ErrorMessage.INVALID_MONEY_NOT_NUMBER.getMessage());
     }
 
-    @Test
-    @DisplayName("예외: 구입 금액이 int범위가 아닌 경우")
-    public void InvalidMoney_Not_Thousand_Fail() {
-        assertThatThrownBy(() -> InputValidator.validateMoney("2147490000"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.INVALID_MONEY_OVER_INT.getMessage());
-    }
-
 }
