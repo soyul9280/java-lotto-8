@@ -29,7 +29,7 @@ public class InputValidatorTest {
     @ParameterizedTest(name = "[case] {0}")
     @ValueSource(strings = {"money",".","1000,2000"})
     @DisplayName("예외: 구입 금액이 숫자가 아닌 경우")
-    public void InvalidMoney_Not_Number_Fail(int money) {
+    public void InvalidMoney_Not_Number_Fail(String money) {
         assertThatThrownBy(() -> InputValidator.validateMoney(money))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_MONEY_NOT_NUMBER.getMessage());
