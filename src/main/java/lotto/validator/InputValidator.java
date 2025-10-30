@@ -10,19 +10,30 @@ public final class InputValidator {
     }
 
     public static void validateMoney(String money) {
-        if (money == null) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_NULL.getMessage());
-        }
-        if(money.isBlank()) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_EMPTY.getMessage());
-        }
-        if(NOT_NUMBER_PATTERN.matcher(money).find()) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_NOT_NUMBER.getMessage());
+        validateNull(money);
+        validateBlank(money);
+        validateMoneyNumberFormat(money);
+    }
+
+    public static void validateWinningNumber(String winningNumber) {
+        validateNull(winningNumber);
+    }
+
+    private static void validateNull(String input) {
+        if (input == null) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT_NULL.getMessage());
         }
     }
-    public static void validateWinningNumber(String winningNumber) {
-        if (winningNumber == null) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_WINNING_NUMBER_NULL.getMessage());
+
+    private static void validateBlank(String input) {
+        if(input.isBlank()) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT_EMPTY.getMessage());
+        }
+    }
+
+    private static void validateMoneyNumberFormat(String input) {
+        if(NOT_NUMBER_PATTERN.matcher(input).find()) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT_NOT_NUMBER.getMessage());
         }
     }
 }
