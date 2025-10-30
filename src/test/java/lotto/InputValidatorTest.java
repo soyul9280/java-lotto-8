@@ -75,7 +75,7 @@ public class InputValidatorTest {
         public void Invalid_WinningNumber_Comma_Position_Fail(String number) {
             assertThatThrownBy(() -> InputValidator.validateWinningNumber(number))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(ErrorMessage.INVALID_COMMA_POSITION.getMessage());
+                    .hasMessage(ErrorMessage.INVALID_DELIMITER_POSITION.getMessage());
         }
 
         @Test
