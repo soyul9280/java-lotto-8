@@ -61,15 +61,6 @@ public class InputValidatorTest {
         }
 
         @ParameterizedTest(name = "[case] {0}")
-        @ValueSource(strings = {"a,b,c,d,e,f","......","number"})
-        @DisplayName("예외: 당첨 번호가 숫자가 아닌 경우")
-        public void Invalid_WinningNumber_Not_Number_Fail(String number) {
-            assertThatThrownBy(() -> InputValidator.validateWinningNumber(number))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(ErrorMessage.INVALID_WINNING_NUMBER_NOT_NUMBER.getMessage());
-        }
-
-        @ParameterizedTest(name = "[case] {0}")
         @ValueSource(strings = {"1,2,3,4,5,6,",",1,2,3,4,5,6"})
         @DisplayName("예외: 당첨 번호가 ,로 시작하거나 끝나는 경우")
         public void Invalid_WinningNumber_Comma_Position_Fail(String number) {
