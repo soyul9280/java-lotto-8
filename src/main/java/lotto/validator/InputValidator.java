@@ -20,9 +20,9 @@ public final class InputValidator {
 
     public static void validateWinningNumber(String winningNumber) {
         validateNull(winningNumber);
+        validateExistNumber(winningNumber);
         validateDelimiterAndNumber(winningNumber);
         validateCommaPosition(winningNumber);
-        validateExistNumber(winningNumber);
     }
 
     private static void validateNull(String input) {
@@ -44,7 +44,7 @@ public final class InputValidator {
     }
 
     private static void validateDelimiterAndNumber(String winningNumber) {
-        if(NOT_NUMBER_PATTERN.matcher(winningNumber).find()) {
+        if(NOT_DELIMITER_AND_NUMBER.matcher(winningNumber).find()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_ONLY_DELIMITER_AND_NUMBER.getMessage());
         }
     }
