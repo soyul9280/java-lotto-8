@@ -33,7 +33,7 @@ public class MoneyTest {
     public void InvalidMoney_Zero_Fail() {
         assertThatThrownBy(()->new Money(0))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.INVALID_MOENY_ZERO.getMessage());
+                .hasMessage(ErrorMessage.INVALID_MONEY_ZERO.getMessage());
     }
 
     @Test
