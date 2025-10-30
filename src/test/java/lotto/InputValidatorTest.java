@@ -46,7 +46,7 @@ public class InputValidatorTest {
     class WinningNumberInputTest {
         @Test
         @DisplayName("예외: 당첨 번호가 null인 경우")
-        public void InvalidMoney_Null_Fail() {
+        public void Invalid_WinningNumber_Null_Fail() {
             assertThatThrownBy(() -> InputValidator.validateWinningNumber(null))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(ErrorMessage.INVALID_WINNING_NUMBER_NULL.getMessage());
@@ -54,7 +54,7 @@ public class InputValidatorTest {
 
         @Test
         @DisplayName("예외: 당첨 번호가 빈 문자열인 경우")
-        public void InvalidMoney_Empty_Fail() {
+        public void Invalid_WinningNumberEmpty_Fail() {
             assertThatThrownBy(() -> InputValidator.validateWinningNumber(""))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(ErrorMessage.INVALID_INPUT_EMPTY.getMessage());
@@ -63,7 +63,7 @@ public class InputValidatorTest {
         @ParameterizedTest(name = "[case] {0}")
         @ValueSource(strings = {"a,b,c,d,e,f","......","number"})
         @DisplayName("예외: 당첨 번호가 숫자가 아닌 경우")
-        public void InvalidMoney_Not_Number_Fail(String number) {
+        public void Invalid_WinningNumber_Not_Number_Fail(String number) {
             assertThatThrownBy(() -> InputValidator.validateWinningNumber(number))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(ErrorMessage.INVALID_WINNING_NUMBER_NOT_NUMBER.getMessage());
@@ -72,7 +72,7 @@ public class InputValidatorTest {
         @ParameterizedTest(name = "[case] {0}")
         @ValueSource(strings = {"1,2,3,4,5,6,",",1,2,3,4,5,6"})
         @DisplayName("예외: 당첨 번호가 ,로 시작하거나 끝나는 경우")
-        public void InvalidMoney_Not_Number_Fail(String number) {
+        public void Invalid_WinningNumber_Comma_Position_Fail(String number) {
             assertThatThrownBy(() -> InputValidator.validateWinningNumber(number))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(ErrorMessage.INVALID_COMMA_POSITION.getMessage());
@@ -80,7 +80,7 @@ public class InputValidatorTest {
 
         @Test
         @DisplayName("예외: 당첨 번호가 ,만 있는 경우")
-        public void InvalidMoney_Not_Number_Fail() {
+        public void Invalid_WinningNumber_No_Number_Fail() {
             assertThatThrownBy(() -> InputValidator.validateWinningNumber(",,,"))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(ErrorMessage.INVALID_NO_NUMBER.getMessage());
@@ -89,7 +89,7 @@ public class InputValidatorTest {
         @ParameterizedTest(name = "[case] {0}")
         @ValueSource(strings = {"1,!,3,4,5,6,",",1/2/3/4/5.6"})
         @DisplayName("예외: 당첨 번호가 , 제외 특수문자가 오는 경우")
-        public void InvalidMoney_Not_Number_Fail(String number) {
+        public void Invalid_WinningNumber_Not_Comma_Fail(String number) {
             assertThatThrownBy(() -> InputValidator.validateWinningNumber(number))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(ErrorMessage.INVALID_COMMA_SPECIAL_CHARACTER.getMessage());
