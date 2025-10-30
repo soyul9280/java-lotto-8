@@ -6,6 +6,7 @@ import lotto.message.ErrorMessage;
 public final class InputValidator {
     private static final Pattern NOT_NUMBER_PATTERN = Pattern.compile("[^0-9]");
     private static final Pattern DELIMITER_PATTERN = Pattern.compile(",");
+    private static final Pattern ONLY_DELIMITER_PATTERN = Pattern.compile("^[,]*$");
 
     private InputValidator() {
     }
@@ -19,6 +20,7 @@ public final class InputValidator {
     public static void validateWinningNumber(String winningNumber) {
         validateNull(winningNumber);
         validateCommaPosition(winningNumber);
+        validateExistNumber(winningNumber);
     }
 
     private static void validateNull(String input) {
@@ -43,6 +45,12 @@ public final class InputValidator {
         String delimiter = DELIMITER_PATTERN.pattern();
         if(winningNumber.startsWith(delimiter)|| winningNumber.endsWith(delimiter)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_DELIMITER_POSITION.getMessage());
+        }
+    }
+
+    private static void validateExistNumber(String winningNumber) {
+        if (winningNumber.matches(ONLY_DELIMITER_PATTERN.pattern())) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NO_NUMBER.getMessage());
         }
     }
 }
