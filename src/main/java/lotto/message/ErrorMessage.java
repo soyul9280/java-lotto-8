@@ -11,7 +11,8 @@ public enum ErrorMessage {
 
     INVALID_WINNING_NUMBER_NULL("당첨 번호에 null이 올 수 없습니다."),
     INVALID_DELIMITER_POSITION("구분자는 시작과 끝에 올 수 없습니다. 시작과 끝은 숫자로 입력해주세요."),
-    INVALID_NO_NUMBER("숫자가 존재하지 않습니다. 숫자를 입력해주세요.");
+    INVALID_NO_NUMBER("숫자가 존재하지 않습니다. 숫자를 입력해주세요."),
+    INVALID_ONLY_DELIMITER_AND_NUMBER("숫자와 , 만 입력 가능합니다.");
 
 
     private final String message;
