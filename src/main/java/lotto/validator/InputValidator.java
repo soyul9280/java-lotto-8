@@ -5,7 +5,7 @@ import lotto.message.ErrorMessage;
 
 public final class InputValidator {
     private static final Pattern NOT_NUMBER_PATTERN = Pattern.compile("[^0-9]");
-    private static final Pattern ONLY_COMMA_PATTERN = Pattern.compile(",");
+    private static final Pattern DELIMITER_PATTERN = Pattern.compile(",");
 
     private InputValidator() {
     }
@@ -40,9 +40,9 @@ public final class InputValidator {
     }
 
     private static void validateCommaPosition(String winningNumber) {
-        String commaPattern = ONLY_COMMA_PATTERN.pattern();
-        if(winningNumber.startsWith(commaPattern)|| winningNumber.endsWith(commaPattern)) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_COMMA_POSITION.getMessage());
+        String delimiter = DELIMITER_PATTERN.pattern();
+        if(winningNumber.startsWith(delimiter)|| winningNumber.endsWith(delimiter)) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_DELIMITER_POSITION.getMessage());
         }
     }
 }

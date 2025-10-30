@@ -10,7 +10,7 @@ public enum ErrorMessage {
     INVALID_MONEY_NOT_THOUSAND_UNIT("구매 금액은 1,000단위로 입력해주세요."),
 
     INVALID_WINNING_NUMBER_NULL("당첨 번호에 null이 올 수 없습니다."),
-    INVALID_COMMA_POSITION(", 는 시작과 끝에 올 수 없습니다.");
+    INVALID_DELIMITER_POSITION("구분자는 시작과 끝에 올 수 없습니다. 시작과 끝은 숫자로 입력해주세요.");
 
 
     private final String message;
