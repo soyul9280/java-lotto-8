@@ -20,4 +20,9 @@ public final class InputValidator {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_NOT_NUMBER.getMessage());
         }
     }
+    public static void validateWinningNumber(String winningNumber) {
+        if (winningNumber == null) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_WINNING_NUMBER_NULL.getMessage());
+        }
+    }
 }
