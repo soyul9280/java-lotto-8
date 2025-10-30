@@ -20,6 +20,7 @@ public final class InputValidator {
 
     public static void validateWinningNumber(String winningNumber) {
         validateNull(winningNumber);
+        validateBlank(winningNumber);
         validateExistNumber(winningNumber);
         validateDelimiterAndNumber(winningNumber);
         validateCommaPosition(winningNumber);
