@@ -20,7 +20,7 @@ public class InputValidatorTest {
         public void InvalidMoney_Null_Fail() {
             assertThatThrownBy(() -> InputValidator.validateMoney(null))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(ErrorMessage.INVALID_MONEY_NULL.getMessage());
+                    .hasMessage(ErrorMessage.INVALID_INPUT_NULL.getMessage()+null);
         }
 
         @Test
@@ -28,7 +28,7 @@ public class InputValidatorTest {
         public void InvalidMoney_Empty_Fail() {
             assertThatThrownBy(() -> InputValidator.validateMoney(""))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(ErrorMessage.INVALID_MONEY_EMPTY.getMessage());
+                    .hasMessage(ErrorMessage.INVALID_INPUT_EMPTY.getMessage());
         }
 
         @ParameterizedTest(name = "[case] {0}")
@@ -37,7 +37,7 @@ public class InputValidatorTest {
         public void InvalidMoney_Not_Number_Fail(String money) {
             assertThatThrownBy(() -> InputValidator.validateMoney(money))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(ErrorMessage.INVALID_MONEY_NOT_NUMBER.getMessage());
+                    .hasMessage(ErrorMessage.INVALID_INPUT_NOT_NUMBER.getMessage());
         }
     }
 
@@ -57,7 +57,7 @@ public class InputValidatorTest {
         public void InvalidMoney_Empty_Fail() {
             assertThatThrownBy(() -> InputValidator.validateWinningNumber(""))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(ErrorMessage.INVALID_WINNING_NUMBER_EMPTY.getMessage());
+                    .hasMessage(ErrorMessage.INVALID_INPUT_EMPTY.getMessage());
         }
 
         @ParameterizedTest(name = "[case] {0}")
@@ -81,7 +81,7 @@ public class InputValidatorTest {
         @Test
         @DisplayName("예외: 당첨 번호가 ,만 있는 경우")
         public void InvalidMoney_Not_Number_Fail() {
-            assertThatThrownBy(() -> InputValidator.validateWinningNumber())
+            assertThatThrownBy(() -> InputValidator.validateWinningNumber(",,,"))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(ErrorMessage.INVALID_NO_NUMBER.getMessage());
         }
