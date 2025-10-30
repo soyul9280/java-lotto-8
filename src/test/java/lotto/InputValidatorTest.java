@@ -3,7 +3,7 @@ package lotto;
 import static org.assertj.core.api.Assertions.*;
 
 import lotto.message.ErrorMessage;
-import lotto.view.InputView;
+import lotto.validator.InputValidator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -13,7 +13,7 @@ public class InputValidatorTest {
     @Test
     @DisplayName("예외: 구입 금액이 null인 경우")
     public void InvalidMoney_Null_Fail() {
-        assertThatThrownBy(() -> InputView.validateMoney(null))
+        assertThatThrownBy(() -> InputValidator.validateMoney(null))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_MONEY_NULL.getMessage());
     }
@@ -21,7 +21,7 @@ public class InputValidatorTest {
     @Test
     @DisplayName("예외: 구입 금액이 빈 문자열인 경우")
     public void InvalidMoney_Empty_Fail() {
-        assertThatThrownBy(() -> InputView.validateMoney(""))
+        assertThatThrownBy(() -> InputValidator.validateMoney(""))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_MONEY_EMPTY.getMessage());
     }
@@ -30,7 +30,7 @@ public class InputValidatorTest {
     @ValueSource(strings = {"money",".","1000,2000"})
     @DisplayName("예외: 구입 금액이 숫자가 아닌 경우")
     public void InvalidMoney_Not_Number_Fail(int money) {
-        assertThatThrownBy(() -> InputView.validateMoney(money))
+        assertThatThrownBy(() -> InputValidator.validateMoney(money))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_MONEY_NOT_NUMBER.getMessage());
     }
@@ -38,7 +38,7 @@ public class InputValidatorTest {
     @Test
     @DisplayName("예외: 구입 금액이 int범위가 아닌 경우")
     public void InvalidMoney_Not_Thousand_Fail() {
-        assertThatThrownBy(() -> InputView.validateMoney("2147490000"))
+        assertThatThrownBy(() -> InputValidator.validateMoney("2147490000"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_MONEY_OVER_INT.getMessage());
     }
