@@ -13,7 +13,7 @@ public class WinningNumber {
         this.winningNumbers = winningNumbers;
     }
 
-    private static WinningNumber create(String input) {
+    public static WinningNumber create(String input) {
         List<String> splitedNumber = SplitByDelimiter.winningNumberDelimiter(input);
         splitedNumber.forEach(TypeConverter::changeToNumber);
         Set<Integer> winningNumbers = new HashSet<>();
