@@ -1,4 +1,4 @@
-package lotto.converter;
+package lotto.utils;
 
 import lotto.message.ErrorMessage;
 
