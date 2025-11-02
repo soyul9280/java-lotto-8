@@ -10,7 +10,7 @@ public final class TypeConverter {
         try{
             return Integer.parseInt(input);
         }catch(NumberFormatException e) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_OVER_INT.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_OVER_INT.getMessage());
         }
     }
 }
