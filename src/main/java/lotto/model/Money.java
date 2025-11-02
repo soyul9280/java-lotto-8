@@ -20,10 +20,10 @@ public class Money {
 
     private static void validateAmount(int amount) {
         if(amount < 0) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_MINUS.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_MINUS.getMessage());
         }
         if (amount == 0) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_ZERO.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_ZERO.getMessage());
         }
         if (amount % 1000 != 0) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_NOT_THOUSAND_UNIT.getMessage());

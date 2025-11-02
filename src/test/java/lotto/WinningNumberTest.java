@@ -17,7 +17,7 @@ public class WinningNumberTest {
     public void InvalidWinningNumber_Minus_Fail(String winningNumber) {
         assertThatThrownBy(() ->WinningNumber.create(winningNumber))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.INVALID_WINNING_NUMBER_MINUS.getMessage());
+                .hasMessage(ErrorMessage.INVALID_NUMBER_MINUS.getMessage());
     }
 
     @Test

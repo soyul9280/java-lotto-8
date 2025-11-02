@@ -44,7 +44,7 @@ public class WinningNumber {
 
     private static void validateMinus(int result) {
         if (result < 0) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_WINNING_NUMBER_MINUS.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_MINUS.getMessage());
         }
     }
 

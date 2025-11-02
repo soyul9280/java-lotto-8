@@ -25,7 +25,7 @@ public class MoneyTest {
     public void InvalidMoney_Minus_Fail(int price) {
         assertThatThrownBy(() ->Money.create(price))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.INVALID_MONEY_MINUS.getMessage());
+                .hasMessage(ErrorMessage.INVALID_NUMBER_MINUS.getMessage());
     }
 
     @Test
@@ -33,7 +33,7 @@ public class MoneyTest {
     public void InvalidMoney_Zero_Fail() {
         assertThatThrownBy(()->Money.create(0))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.INVALID_MONEY_ZERO.getMessage());
+                .hasMessage(ErrorMessage.INVALID_NUMBER_ZERO.getMessage());
     }
 
     @Test
