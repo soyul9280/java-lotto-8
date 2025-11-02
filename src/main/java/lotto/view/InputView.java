@@ -6,6 +6,7 @@ import lotto.validator.InputValidator;
 public class InputView {
     private static final String MoneyGuide = "구입금액을 입력해 주세요.";
     private static final String WinningNumberGuide = "당첨 번호를 입력해 주세요.";
+    private static final String BonusNumberGuide = "보너스 번호를 입력해 주세요.";
 
     private InputView() {
     }
@@ -22,5 +23,12 @@ public class InputView {
         String winningNumber = Console.readLine();
         InputValidator.validateWinningNumber(winningNumber);
         return winningNumber;
+    }
+
+    public static String inputBonusNumber() {
+        System.out.println(BonusNumberGuide);
+        String bonusNumber = Console.readLine();
+        InputValidator.validateBonusNumber(bonusNumber);
+        return bonusNumber;
     }
 }

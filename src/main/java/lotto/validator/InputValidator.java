@@ -26,6 +26,10 @@ public final class InputValidator {
         validateCommaPosition(winningNumber);
     }
 
+    public static void validateBonusNumber(String bonusNumber) {
+        validateNull(bonusNumber);
+    }
+
     private static void validateNull(String input) {
         if (input == null) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT_NULL.getMessage());
