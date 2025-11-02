@@ -10,7 +10,7 @@ public enum ErrorMessage {
     INVALID_DELIMITER_POSITION("구분자는 시작과 끝에 올 수 없습니다. 시작과 끝은 숫자로 입력해주세요."),
     INVALID_NO_NUMBER("숫자가 존재하지 않습니다. 숫자를 입력해주세요."),
     INVALID_ONLY_DELIMITER_AND_NUMBER("숫자와 , 만 입력 가능합니다."),
-    INVALID_WINNING_NUMBER_DUPLICATE("당첨 번호는 중복일 수 없습니다."),
+    INVALID_NUMBER_DUPLICATE("숫자는 중복일 수 없습니다."),
     INVALID_SEQUENCE_DELIMITER("구분자가 연속으로 입력되었습니다."),
     INVALID_NUMBER_OVER_COUNT("당첨 숫자는 6자가 최대 입니다."),
 

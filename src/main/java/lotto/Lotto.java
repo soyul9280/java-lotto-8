@@ -1,13 +1,17 @@
 package lotto;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import lotto.message.ErrorMessage;
 
 public class Lotto {
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
+        validateDuplicate(numbers);
         this.numbers = numbers;
     }
 
@@ -28,5 +32,12 @@ public class Lotto {
 
     public List<Integer> getNumbers() {
         return numbers;
+    }
+
+    private static void validateDuplicate(List<Integer> numbers) {
+        Set<Integer> uniqueNumbers = new HashSet<>(numbers);
+        if(uniqueNumbers.size() != numbers.size()) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_DUPLICATE.getMessage());
+        }
     }
 }

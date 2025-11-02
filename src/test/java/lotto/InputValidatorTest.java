@@ -111,7 +111,7 @@ public class InputValidatorTest {
         public void Invalid_WinningNumber_No_Number_Fail() {
             assertThatThrownBy(() -> InputValidator.validateBonusNumber(","))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(ErrorMessage.INVALID_NO_NUMBER.getMessage());
+                    .hasMessage(ErrorMessage.INVALID_INPUT_NOT_NUMBER.getMessage());
         }
     }
 }

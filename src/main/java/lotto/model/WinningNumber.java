@@ -49,8 +49,8 @@ public class WinningNumber {
     }
 
     private static void validateDuplicate(Set<Integer> winningNumbers, List<String> splitedNumber) {
-        if(winningNumbers.size()< splitedNumber.size()) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_WINNING_NUMBER_DUPLICATE.getMessage());
+        if(winningNumbers.size()!= splitedNumber.size()) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_DUPLICATE.getMessage());
         }
     }
 

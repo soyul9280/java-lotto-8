@@ -2,7 +2,6 @@ package lotto;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import java.util.List;
 import lotto.message.ErrorMessage;
 import lotto.model.WinningNumber;
 import org.junit.jupiter.api.DisplayName;
@@ -25,7 +24,7 @@ public class WinningNumberTest {
     public void InvalidWinningNumber_Duplicate_Fail() {
         assertThatThrownBy(() ->WinningNumber.create("1,2,3,4,4,6"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.INVALID_WINNING_NUMBER_DUPLICATE.getMessage());
+                .hasMessage(ErrorMessage.INVALID_NUMBER_DUPLICATE.getMessage());
     }
 
     @Test
