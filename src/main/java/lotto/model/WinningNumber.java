@@ -25,7 +25,9 @@ public class WinningNumber {
         }
 
         validateDuplicate(winningNumbers, splitedNumber);
-
+        if (winningNumbers.size() > 6) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_OVER_COUNT.getMessage());
+        }
 
         return new WinningNumber(winningNumbers);
     }
