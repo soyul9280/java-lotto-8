@@ -9,6 +9,7 @@ import lotto.utils.TypeConverter;
 
 public class WinningNumber {
     private final Set<Integer> winningNumbers;
+
     private WinningNumber(Set<Integer> winningNumbers) {
         this.winningNumbers = winningNumbers;
     }
@@ -49,7 +50,7 @@ public class WinningNumber {
     }
 
     private static void validateDuplicate(Set<Integer> winningNumbers, List<String> splitedNumber) {
-        if(winningNumbers.size()!= splitedNumber.size()) {
+        if (winningNumbers.size() != splitedNumber.size()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_DUPLICATE.getMessage());
         }
     }

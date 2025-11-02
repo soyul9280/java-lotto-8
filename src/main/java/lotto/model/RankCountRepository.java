@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class RankCountRepository {
     private final Map<Rank, Integer> rankCounts;
+
     private RankCountRepository() {
         this.rankCounts = new HashMap<>();
     }

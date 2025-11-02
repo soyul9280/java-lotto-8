@@ -7,9 +7,9 @@ public final class TypeConverter {
     }
 
     public static int changeToNumber(String input) {
-        try{
+        try {
             return Integer.parseInt(input);
-        }catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_OVER_INT.getMessage());
         }
     }

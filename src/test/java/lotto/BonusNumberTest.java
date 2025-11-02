@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class BonusNumberTest {
     @ParameterizedTest(name = "[case] {0}")
-    @ValueSource(ints = {1,12,23,34,44})
+    @ValueSource(ints = {1, 12, 23, 34, 44})
     @DisplayName("정상: 보너스 번호가 정상적인 경우")
     public void Valid_Bonus_Number_Success(int number) {
         assertThat(BonusNumber.create(number))
@@ -20,10 +20,10 @@ public class BonusNumberTest {
     }
 
     @ParameterizedTest(name = "[case] {0}")
-    @ValueSource(ints = {-1, -12,-23,-34,-44})
+    @ValueSource(ints = {-1, -12, -23, -34, -44})
     @DisplayName("예외: 보너스 번호가 음수인 경우")
     public void Invalid_Bonus_Number_Minus_Fail(int number) {
-        assertThatThrownBy(() ->BonusNumber.create(number))
+        assertThatThrownBy(() -> BonusNumber.create(number))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_NUMBER_MINUS.getMessage());
     }
@@ -31,7 +31,7 @@ public class BonusNumberTest {
     @Test
     @DisplayName("예외: 보너스 번호가 0인 경우")
     public void Invalid_Bonus_Number_Zero_Fail() {
-        assertThatThrownBy(()->BonusNumber.create(0))
+        assertThatThrownBy(() -> BonusNumber.create(0))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_NUMBER_ZERO.getMessage());
     }

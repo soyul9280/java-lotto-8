@@ -32,7 +32,7 @@ public class InputValidatorTest {
         }
 
         @ParameterizedTest(name = "[case] {0}")
-        @ValueSource(strings = {"money",".","1000,2000"})
+        @ValueSource(strings = {"money", ".", "1000,2000"})
         @DisplayName("예외: 구입 금액이 숫자가 아닌 경우")
         public void InvalidMoney_Not_Number_Fail(String money) {
             assertThatThrownBy(() -> InputValidator.validateMoney(money))
@@ -61,7 +61,7 @@ public class InputValidatorTest {
         }
 
         @ParameterizedTest(name = "[case] {0}")
-        @ValueSource(strings = {"1,2,3,4,5,6,",",1,2,3,4,5,6"})
+        @ValueSource(strings = {"1,2,3,4,5,6,", ",1,2,3,4,5,6"})
         @DisplayName("예외: 당첨 번호가 ,로 시작하거나 끝나는 경우")
         public void Invalid_WinningNumber_Comma_Position_Fail(String number) {
             assertThatThrownBy(() -> InputValidator.validateWinningNumber(number))
@@ -78,7 +78,7 @@ public class InputValidatorTest {
         }
 
         @ParameterizedTest(name = "[case] {0}")
-        @ValueSource(strings = {"1,!,3,4,5,6,",",1/2/3/4/5.6"})
+        @ValueSource(strings = {"1,!,3,4,5,6,", ",1/2/3/4/5.6"})
         @DisplayName("예외: 당첨 번호가 , 제외 특수문자가 오는 경우")
         public void Invalid_WinningNumber_Not_Comma_Fail(String number) {
             assertThatThrownBy(() -> InputValidator.validateWinningNumber(number))

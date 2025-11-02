@@ -8,6 +8,7 @@ public class BonusNumber {
     private BonusNumber(int number) {
         this.number = number;
     }
+
     public static BonusNumber create(int number) {
         validateMinus(number);
         validateZero(number);
@@ -19,6 +20,7 @@ public class BonusNumber {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_MINUS.getMessage());
         }
     }
+
     private static void validateZero(int result) {
         if (result == 0) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_ZERO.getMessage());

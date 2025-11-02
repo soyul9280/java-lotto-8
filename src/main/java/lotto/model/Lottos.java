@@ -6,6 +6,7 @@ import lotto.Lotto;
 
 public class Lottos {
     private List<Lotto> lottoItems;
+
     private Lottos(List<Lotto> lottoItems) {
         this.lottoItems = lottoItems;
     }

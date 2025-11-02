@@ -20,14 +20,14 @@ public class InputView {
     }
 
     public static String inputWinningNumber() {
-        System.out.println(NEWLINE+WinningNumberGuide);
+        System.out.println(NEWLINE + WinningNumberGuide);
         String winningNumber = Console.readLine();
         InputValidator.validateWinningNumber(winningNumber);
         return winningNumber;
     }
 
     public static String inputBonusNumber() {
-        System.out.println(NEWLINE+BonusNumberGuide);
+        System.out.println(NEWLINE + BonusNumberGuide);
         String bonusNumber = Console.readLine();
         InputValidator.validateBonusNumber(bonusNumber);
         return bonusNumber;

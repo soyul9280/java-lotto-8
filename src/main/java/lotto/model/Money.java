@@ -19,7 +19,7 @@ public class Money {
     }
 
     private static void validateAmount(int amount) {
-        if(amount < 0) {
+        if (amount < 0) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_MINUS.getMessage());
         }
         if (amount == 0) {
