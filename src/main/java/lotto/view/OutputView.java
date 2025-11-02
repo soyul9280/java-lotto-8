@@ -7,7 +7,7 @@ import lotto.model.Rank;
 import lotto.model.RankCountRepository;
 
 public class OutputView {
-    private static final String ErrorFormat = "[ERROR] ";
+    private static final String ERROR_FORMAT = "[ERROR] ";
     private static final String NEWLINE = System.lineSeparator();
 
     public static void printPurchasedLottos(Lottos lottos) {
@@ -35,6 +35,6 @@ public class OutputView {
     }
 
     public static void printException(IllegalArgumentException e) {
-        System.out.println(ErrorFormat + e.getMessage());
+        System.out.println(ERROR_FORMAT + e.getMessage());
     }
 }
