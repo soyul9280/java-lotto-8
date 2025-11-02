@@ -38,4 +38,12 @@ public enum Rank {
         }
         return NORANK;
     }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public int getWinningprice() {
+        return Winningprice;
+    }
 }

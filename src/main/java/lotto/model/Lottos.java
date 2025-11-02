@@ -20,4 +20,11 @@ public class Lottos {
         return new Lottos(pickedItems);
     }
 
+    public int getSize() {
+        return lottoItems.size();
+    }
+
+    public List<Lotto> getLottoItems() {
+        return lottoItems;
+    }
 }

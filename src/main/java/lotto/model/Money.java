@@ -29,4 +29,8 @@ public class Money {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_NOT_THOUSAND_UNIT.getMessage());
         }
     }
+
+    public int getAmount() {
+        return amount;
+    }
 }

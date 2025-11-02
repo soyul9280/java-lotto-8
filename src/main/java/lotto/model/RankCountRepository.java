@@ -16,4 +16,8 @@ public class RankCountRepository {
     public void addCountByRank(Rank rank) {
         rankCounts.put(rank, rankCounts.getOrDefault(rank, 0) + 1);
     }
+
+    public int getCount(Rank rank) {
+        return rankCounts.get(rank);
+    }
 }
