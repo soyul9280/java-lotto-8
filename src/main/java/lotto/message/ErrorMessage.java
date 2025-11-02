@@ -19,13 +19,12 @@ public enum ErrorMessage {
 
 
     private final String message;
-    private static final String ErrorFormat = "[ERROR] ";
 
     ErrorMessage(String message) {
         this.message = message;
     }
 
     public String getMessage() {
-        return ErrorFormat+ message;
+        return message;
     }
 }
