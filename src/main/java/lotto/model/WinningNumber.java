@@ -26,9 +26,7 @@ public class WinningNumber {
         }
 
         validateDuplicate(winningNumbers, splitedNumber);
-        if (winningNumbers.size() > 6) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_OVER_COUNT.getMessage());
-        }
+        validateCount(winningNumbers);
 
         return new WinningNumber(winningNumbers);
     }
@@ -37,21 +35,27 @@ public class WinningNumber {
         return winningNumbers.contains(number);
     }
 
-    private static void validateSequenceDelimiter(List<String> splitedNumber, int i) {
-        if (splitedNumber.get(i).equals("")) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_SEQUENCE_DELIMITER.getMessage());
-        }
-    }
-
     private static void validateMinus(int result) {
         if (result < 0) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_MINUS.getMessage());
         }
     }
 
+    private static void validateSequenceDelimiter(List<String> splitedNumber, int i) {
+        if (splitedNumber.get(i).equals("")) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_SEQUENCE_DELIMITER.getMessage());
+        }
+    }
+
     private static void validateDuplicate(Set<Integer> winningNumbers, List<String> splitedNumber) {
         if (winningNumbers.size() != splitedNumber.size()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_DUPLICATE.getMessage());
+        }
+    }
+
+    private static void validateCount(Set<Integer> winningNumbers) {
+        if (winningNumbers.size() > 6) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_OVER_COUNT.getMessage());
         }
     }
 
