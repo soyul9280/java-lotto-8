@@ -18,6 +18,6 @@ public class RankCountRepository {
     }
 
     public int getCount(Rank rank) {
-        return rankCounts.get(rank);
+        return rankCounts.getOrDefault(rank, 0);
     }
 }

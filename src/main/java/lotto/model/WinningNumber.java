@@ -32,6 +32,10 @@ public class WinningNumber {
         return new WinningNumber(winningNumbers);
     }
 
+    public boolean hasNumber(int number) {
+        return winningNumbers.contains(number);
+    }
+
     private static void validateSequenceDelimiter(List<String> splitedNumber, int i) {
         if (splitedNumber.get(i).equals("")) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_SEQUENCE_DELIMITER.getMessage());

@@ -22,6 +22,10 @@ public class Lotto {
         return new Lotto(pickedNumbers);
     }
 
+    public boolean hasNumber(int number) {
+        return numbers.contains(number);
+    }
+
     public List<Integer> getNumbers() {
         return numbers;
     }

@@ -25,4 +25,7 @@ public class BonusNumber {
         }
     }
 
+    public int getNumber() {
+        return number;
+    }
 }
