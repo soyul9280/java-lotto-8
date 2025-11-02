@@ -1,5 +1,6 @@
 package lotto;
 
+import lotto.model.Lottos;
 import lotto.model.Money;
 import lotto.utils.TypeConverter;
 import lotto.view.InputView;
@@ -11,6 +12,7 @@ public class LottoController {
 
     public void startLotto() {
         Money money = initMoney();
+        Lottos.create(money);
 
     }
 

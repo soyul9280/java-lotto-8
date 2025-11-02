@@ -14,6 +14,10 @@ public class Money {
         return new Money(amount);
     }
 
+    public int createTryCount() {
+        return amount / 1000;
+    }
+
     private static void validateAmount(int amount) {
         if(amount < 0) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_MINUS.getMessage());
