@@ -24,10 +24,10 @@ public enum Rank {
         if(matchCount == 6) {
             return FIRST;
         }
-        if(matchCount == 5) {
+        if (matchCount == 5 && matchBonus) {
             return SECOND;
         }
-        if(matchCount == 5&& !matchBonus) {
+        if(matchCount == 5) {
             return THIRD;
         }
         if(matchCount == 4) {
