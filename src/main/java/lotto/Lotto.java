@@ -22,4 +22,7 @@ public class Lotto {
         return new Lotto(pickedNumbers);
     }
 
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
 }
