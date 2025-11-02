@@ -49,19 +49,35 @@ public class LottoController {
     }
 
     private static Money initMoney() {
-        String amount = InputView.inputMoney();
-        int amountNumber = TypeConverter.changeToNumber(amount);
-        return Money.create(amountNumber);
+        try{
+            String amount = InputView.inputMoney();
+            int amountNumber = TypeConverter.changeToNumber(amount);
+            return Money.create(amountNumber);
+        }catch (IllegalArgumentException e){
+            OutputView.printException(e);
+            return initMoney();
+        }
     }
 
     private static WinningNumber initWinningNumber() {
-        String winningNumberInput = InputView.inputWinningNumber();
-        return WinningNumber.create(winningNumberInput);
+        try{
+            String winningNumberInput = InputView.inputWinningNumber();
+            return WinningNumber.create(winningNumberInput);
+        }catch (IllegalArgumentException e){
+            OutputView.printException(e);
+            return initWinningNumber();
+        }
     }
 
     private static BonusNumber initBonusNumber() {
-        String bonusNumberInput = InputView.inputBonusNumber();
-        int bonusNumber = TypeConverter.changeToNumber(bonusNumberInput);
-        return BonusNumber.create(bonusNumber);
+        try{
+            String bonusNumberInput = InputView.inputBonusNumber();
+            int bonusNumber = TypeConverter.changeToNumber(bonusNumberInput);
+            return BonusNumber.create(bonusNumber);
+        }catch (IllegalArgumentException e){
+            OutputView.printException(e);
+            return initBonusNumber();
+        }
+
     }
 }
