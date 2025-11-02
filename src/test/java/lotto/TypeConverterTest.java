@@ -15,4 +15,12 @@ public class TypeConverterTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_MONEY_OVER_INT.getMessage());
     }
+
+    @Test
+    @DisplayName("예외: 보너스 번호가 int범위가 아닌 경우")
+    public void Invalid_BonusNumber_Over_Int() {
+        assertThatThrownBy(() -> TypeConverter.changeToNumber("2147490000"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorMessage.INVALID_NUMBER_OVER_INT.getMessage());
+    }
 }

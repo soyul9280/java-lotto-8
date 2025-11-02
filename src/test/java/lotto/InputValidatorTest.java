@@ -86,4 +86,32 @@ public class InputValidatorTest {
                     .hasMessage(ErrorMessage.INVALID_ONLY_DELIMITER_AND_NUMBER.getMessage());
         }
     }
+
+    @Nested
+    @DisplayName("보너스 번호 테스트")
+    class BonusNumberInputTest {
+        @Test
+        @DisplayName("예외: 보너스 번호가 null인 경우")
+        public void Invalid_BonusNumber_Null_Fail() {
+            assertThatThrownBy(() -> InputValidator.validateBonusNumber(null))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage(ErrorMessage.INVALID_INPUT_NULL.getMessage());
+        }
+
+        @Test
+        @DisplayName("예외: 보너스 번호가 빈 문자열인 경우")
+        public void Invalid_WinningNumberEmpty_Fail() {
+            assertThatThrownBy(() -> InputValidator.validateBonusNumber(""))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage(ErrorMessage.INVALID_INPUT_EMPTY.getMessage());
+        }
+
+        @Test
+        @DisplayName("예외: 보너스 번호가 숫자가 아닌 경우")
+        public void Invalid_WinningNumber_No_Number_Fail() {
+            assertThatThrownBy(() -> InputValidator.validateBonusNumber(","))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage(ErrorMessage.INVALID_NO_NUMBER.getMessage());
+        }
+    }
 }
