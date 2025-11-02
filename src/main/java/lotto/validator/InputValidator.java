@@ -28,6 +28,7 @@ public final class InputValidator {
 
     public static void validateBonusNumber(String bonusNumber) {
         validateNull(bonusNumber);
+        validateBlank(bonusNumber);
     }
 
     private static void validateNull(String input) {
