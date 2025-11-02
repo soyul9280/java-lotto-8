@@ -13,7 +13,7 @@ public class TypeConverterTest {
     public void InvalidMoney_Not_Thousand_Fail() {
         assertThatThrownBy(() -> TypeConverter.changeToNumber("2147490000"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.INVALID_MONEY_OVER_INT.getMessage());
+                .hasMessage(ErrorMessage.INVALID_NUMBER_OVER_INT.getMessage());
     }
 
     @Test
