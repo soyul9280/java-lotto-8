@@ -5,12 +5,16 @@ import lotto.message.ErrorMessage;
 public class Money {
     private final int amount;
 
-    public Money(int amount) {
-        validateAmount(amount);
+    private Money(int amount) {
         this.amount = amount;
     }
 
-    private void validateAmount(int amount) {
+    public static Money create(int amount) {
+        validateAmount(amount);
+        return new Money(amount);
+    }
+
+    private static void validateAmount(int amount) {
         if(amount < 0) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_MINUS.getMessage());
         }
