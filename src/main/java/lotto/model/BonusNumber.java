@@ -10,12 +10,18 @@ public class BonusNumber {
     }
     public static BonusNumber create(int number) {
         validateMinus(number);
+        validateZero(number);
         return new BonusNumber(number);
     }
 
     private static void validateMinus(int result) {
         if (result < 0) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_MINUS.getMessage());
+        }
+    }
+    private static void validateZero(int result) {
+        if (result == 0) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_ZERO.getMessage());
         }
     }
 

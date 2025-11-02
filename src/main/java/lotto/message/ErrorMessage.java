@@ -17,7 +17,8 @@ public enum ErrorMessage {
     INVALID_SEQUENCE_DELIMITER("구분자가 연속으로 입력되었습니다."),
     INVALID_NUMBER_OVER_COUNT("당첨 숫자는 6자가 최대 입니다."),
 
-    INVALID_NUMBER_MINUS("음수를 입력할 수 없습니다.");
+    INVALID_NUMBER_MINUS("음수를 입력할 수 없습니다."),
+    INVALID_NUMBER_ZERO("0을 입력할 수 없습니다.");
 
 
     private final String message;
