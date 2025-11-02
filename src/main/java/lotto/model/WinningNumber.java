@@ -15,10 +15,24 @@ public class WinningNumber {
 
     public static WinningNumber create(String input) {
         List<String> splitedNumber = SplitByDelimiter.winningNumberDelimiter(input);
-        splitedNumber.forEach(TypeConverter::changeToNumber);
         Set<Integer> winningNumbers = new HashSet<>();
+
+        for (int i = 0; i < splitedNumber.size(); i++) {
+            int result = TypeConverter.changeToNumber(splitedNumber.get(i));
+            validateMinus(result);
+            winningNumbers.add(result);
+        }
+
         validateDuplicate(winningNumbers, splitedNumber);
+
+
         return new WinningNumber(winningNumbers);
+    }
+
+    private static void validateMinus(int result) {
+        if (result < 0) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_WINNING_NUMBER_MINUS.getMessage());
+        }
     }
 
     private static void validateDuplicate(Set<Integer> winningNumbers, List<String> splitedNumber) {
