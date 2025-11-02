@@ -15,7 +15,7 @@ public class MoneyTest {
     @ValueSource(ints = {1000, 2000,3000,90000})
     @DisplayName("정상: 구입 금액이 정상적인 경우")
     public void Valid_Money_Success(int price) {
-        assertThat(new Money(price))
+        assertThat(Money.create(price))
                 .isInstanceOf(Money.class);
     }
 
@@ -23,7 +23,7 @@ public class MoneyTest {
     @ValueSource(ints = {-1000, -9999})
     @DisplayName("예외: 구입 금액이 음수인 경우")
     public void InvalidMoney_Minus_Fail(int price) {
-        assertThatThrownBy(() ->new Money(price))
+        assertThatThrownBy(() ->Money.create(price))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_MONEY_MINUS.getMessage());
     }
@@ -31,7 +31,7 @@ public class MoneyTest {
     @Test
     @DisplayName("예외: 구입 금액이 0인 경우")
     public void InvalidMoney_Zero_Fail() {
-        assertThatThrownBy(()->new Money(0))
+        assertThatThrownBy(()->Money.create(0))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_MONEY_ZERO.getMessage());
     }
@@ -39,7 +39,7 @@ public class MoneyTest {
     @Test
     @DisplayName("예외: 구입 금액이 1000단위가 아닌 경우")
     public void InvalidMoney_Not_Thousand_Fail() {
-        assertThatThrownBy(() ->new Money(29500))
+        assertThatThrownBy(() ->Money.create(29500))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_MONEY_NOT_THOUSAND_UNIT.getMessage());
     }
