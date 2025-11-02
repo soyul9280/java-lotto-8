@@ -18,6 +18,7 @@ public class WinningNumber {
         Set<Integer> winningNumbers = new HashSet<>();
 
         for (int i = 0; i < splitedNumber.size(); i++) {
+            validateSequenceDelimiter(splitedNumber, i);
             int result = TypeConverter.changeToNumber(splitedNumber.get(i));
             validateMinus(result);
             winningNumbers.add(result);
@@ -27,6 +28,12 @@ public class WinningNumber {
 
 
         return new WinningNumber(winningNumbers);
+    }
+
+    private static void validateSequenceDelimiter(List<String> splitedNumber, int i) {
+        if (splitedNumber.get(i).equals("")) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_SEQUENCE_DELIMITER.getMessage());
+        }
     }
 
     private static void validateMinus(int result) {
