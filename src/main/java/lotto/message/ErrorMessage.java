@@ -8,7 +8,7 @@ public enum ErrorMessage {
     INVALID_NUMBER_OVER_INT("입력한 숫자가 너무 큽니다. 2,147,483,647 범위 내에서 입력해주세요."),
     INVALID_NUMBER_MINUS("음수를 입력할 수 없습니다."),
     INVALID_NUMBER_ZERO("0을 입력할 수 없습니다."),
-    INVALID_NUMBER_OVER_COUNT("당첨 숫자는 6자가 최대 입니다."),
+    INVALID_NUMBER_NOT_DIGIT_COUNT("당첨 숫자는 6개로 입력해주세요."),
     INVALID_NO_NUMBER("숫자가 존재하지 않습니다. 숫자를 입력해주세요."),
     INVALID_NUMBER_DUPLICATE("숫자는 중복일 수 없습니다."),
 

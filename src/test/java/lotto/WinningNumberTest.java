@@ -40,6 +40,6 @@ public class WinningNumberTest {
     public void InvalidWinningNumber_Over_Count_Fail() {
         assertThatThrownBy(() -> WinningNumber.create("1,2,3,4,5,6,7"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.INVALID_NUMBER_OVER_COUNT.getMessage());
+                .hasMessage(ErrorMessage.INVALID_NUMBER_NOT_DIGIT_COUNT.getMessage());
     }
 }

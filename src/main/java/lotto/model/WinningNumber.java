@@ -8,7 +8,7 @@ import lotto.utils.SplitByDelimiter;
 import lotto.utils.TypeConverter;
 
 public class WinningNumber {
-    private static final int MAX_DIGIT = 6;
+    private static final int DIGIT = 6;
     private final Set<Integer> winningNumbers;
 
     private WinningNumber(Set<Integer> winningNumbers) {
@@ -36,15 +36,15 @@ public class WinningNumber {
         return winningNumbers.contains(number);
     }
 
-    private static void validateMinus(int result) {
-        if (result < 0) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_MINUS.getMessage());
-        }
-    }
-
     private static void validateSequenceDelimiter(List<String> splitedNumber, int i) {
         if (splitedNumber.get(i).equals("")) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_SEQUENCE_DELIMITER.getMessage());
+        }
+    }
+
+    private static void validateMinus(int result) {
+        if (result < 0) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_MINUS.getMessage());
         }
     }
 
@@ -55,8 +55,8 @@ public class WinningNumber {
     }
 
     private static void validateCount(Set<Integer> winningNumbers) {
-        if (winningNumbers.size() > MAX_DIGIT) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_OVER_COUNT.getMessage());
+        if (winningNumbers.size() != DIGIT) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_NOT_DIGIT_COUNT.getMessage());
         }
     }
 
