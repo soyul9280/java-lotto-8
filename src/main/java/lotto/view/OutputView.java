@@ -8,17 +8,22 @@ import lotto.model.RankCountRepository;
 
 public class OutputView {
     private static final String ERROR_FORMAT = "[ERROR] ";
+    private static final String PURCHASE_RATE_FORMAT = "총 수익률은 %.1f%%입니다.%n";
+    private static final String MATCH_COUNT_FORMAT = "%s - %d개%n";
+    private static final String HEADER_FORMAT = "당첨 통계";
+    private static final String HEADER_DELIMITER = "---";
+    private static final String PURCHASE_COUNT_FORMAT = "개를 구매했습니다.";
     private static final String NEWLINE = System.lineSeparator();
 
     public static void printPurchasedLottos(Lottos lottos) {
-        System.out.println(NEWLINE + lottos.getSize() + "개를 구매했습니다.");
+        System.out.println(NEWLINE + lottos.getSize() + PURCHASE_COUNT_FORMAT);
         for (Lotto lotto : lottos.getLottoItems()) {
             System.out.println(lotto.getNumbers());
         }
     }
 
     public static void printStatistics(RankCountRepository rankRepo, Money money) {
-        System.out.println(NEWLINE + "당첨 통계" + NEWLINE + "---");
+        System.out.println(NEWLINE + HEADER_FORMAT + NEWLINE + HEADER_DELIMITER);
         int totalPrize = 0;
 
         for (Rank rank : Rank.values()) {
@@ -27,11 +32,11 @@ public class OutputView {
             }
             int count = rankRepo.getCount(rank);
             totalPrize += count * rank.getWinningPrice();
-            System.out.printf("%s - %d개%n", rank.getMessage(), count);
+            System.out.printf(MATCH_COUNT_FORMAT, rank.getMessage(), count);
         }
 
         double yield = (double) totalPrize / money.getAmount() * 100;
-        System.out.printf("총 수익률은 %.1f%%입니다.%n", yield);
+        System.out.printf(PURCHASE_RATE_FORMAT, yield);
     }
 
     public static void printException(IllegalArgumentException e) {

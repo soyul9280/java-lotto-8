@@ -8,6 +8,7 @@ import lotto.utils.SplitByDelimiter;
 import lotto.utils.TypeConverter;
 
 public class WinningNumber {
+    private static final int MAX_DIGIT = 6;
     private final Set<Integer> winningNumbers;
 
     private WinningNumber(Set<Integer> winningNumbers) {
@@ -54,7 +55,7 @@ public class WinningNumber {
     }
 
     private static void validateCount(Set<Integer> winningNumbers) {
-        if (winningNumbers.size() > 6) {
+        if (winningNumbers.size() > MAX_DIGIT) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_OVER_COUNT.getMessage());
         }
     }
