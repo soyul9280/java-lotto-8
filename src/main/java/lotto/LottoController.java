@@ -1,6 +1,7 @@
 package lotto;
 
 import lotto.model.BonusNumber;
+import lotto.model.Lotto;
 import lotto.model.Lottos;
 import lotto.model.Money;
 import lotto.model.Rank;
