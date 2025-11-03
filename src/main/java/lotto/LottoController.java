@@ -19,21 +19,17 @@ public class LottoController {
         Money money = initMoney();
         Lottos lottos = Lottos.create(money);
         OutputView.printPurchasedLottos(lottos);
-
         WinningNumber winningNumber = initWinningNumber();
         BonusNumber bonusNumber = initBonusNumber();
-
         processResult(lottos, winningNumber, bonusNumber, money);
     }
 
     private void processResult(Lottos lottos, WinningNumber winningNumber, BonusNumber bonusNumber, Money money) {
         RankCountRepository rankRepo = RankCountRepository.create();
-
         for (Lotto lotto : lottos.getLottoItems()) {
             Rank rank = calculateRank(lotto, winningNumber, bonusNumber);
             rankRepo.addCountByRank(rank);
         }
-
         OutputView.printStatistics(rankRepo, money);
     }
 
@@ -44,7 +40,6 @@ public class LottoController {
                 matchCount++;
             }
         }
-
         boolean matchBonus = lotto.hasNumber(bonusNumber.getNumber());
         return Rank.assignRank(matchCount, matchBonus);
     }
@@ -79,6 +74,5 @@ public class LottoController {
             OutputView.printException(e);
             return initBonusNumber();
         }
-
     }
 }
