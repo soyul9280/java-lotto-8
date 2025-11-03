@@ -7,9 +7,9 @@ import java.util.Set;
 import lotto.message.ErrorMessage;
 
 public class Lotto {
-    private static final int MIN_PICK_NUMBER =1;
-    private static final int MAX_PICK_NUMBER =45;
-    private static final int COUNT_PICK_NUMBER =6;
+    private static final int MIN_PICK_NUMBER = 1;
+    private static final int MAX_PICK_NUMBER = 45;
+    private static final int COUNT_PICK_NUMBER = 6;
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
@@ -19,7 +19,8 @@ public class Lotto {
     }
 
     public static Lotto createRandomNumbers() {
-        List<Integer> pickedNumbers = Randoms.pickUniqueNumbersInRange(MIN_PICK_NUMBER, MAX_PICK_NUMBER, COUNT_PICK_NUMBER);
+        List<Integer> pickedNumbers = Randoms.pickUniqueNumbersInRange(MIN_PICK_NUMBER, MAX_PICK_NUMBER,
+                COUNT_PICK_NUMBER);
         return new Lotto(pickedNumbers);
     }
 
