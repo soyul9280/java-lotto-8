@@ -13,6 +13,8 @@ public class OutputView {
     private static final String HEADER_FORMAT = "당첨 통계";
     private static final String HEADER_DELIMITER = "---";
     private static final String PURCHASE_COUNT_FORMAT = "개를 구매했습니다.";
+    private static final int DEFAULT_TOTAL_PRIZE = 0;
+    private static final int PERCENTAGE_UNIT = 100;
     private static final String NEWLINE = System.lineSeparator();
 
     public static void printPurchasedLottos(Lottos lottos) {
@@ -24,7 +26,7 @@ public class OutputView {
 
     public static void printStatistics(RankCountRepository rankRepo, Money money) {
         System.out.println(NEWLINE + HEADER_FORMAT + NEWLINE + HEADER_DELIMITER);
-        int totalPrize = 0;
+        int totalPrize = DEFAULT_TOTAL_PRIZE;
 
         for (Rank rank : Rank.values()) {
             if (rank == Rank.NORANK) {
@@ -35,7 +37,7 @@ public class OutputView {
             System.out.printf(MATCH_COUNT_FORMAT, rank.getMessage(), count);
         }
 
-        double yield = (double) totalPrize / money.getAmount() * 100;
+        double yield = (double) totalPrize / money.getAmount() * PERCENTAGE_UNIT;
         System.out.printf(PURCHASE_RATE_FORMAT, yield);
     }
 

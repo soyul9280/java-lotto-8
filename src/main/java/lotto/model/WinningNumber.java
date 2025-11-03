@@ -37,7 +37,7 @@ public class WinningNumber {
     }
 
     private static void validateSequenceDelimiter(List<String> splitedNumber, int i) {
-        if (splitedNumber.get(i).equals("")) {
+        if (splitedNumber.get(i).isBlank()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_SEQUENCE_DELIMITER.getMessage());
         }
     }
